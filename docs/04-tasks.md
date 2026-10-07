@@ -45,16 +45,16 @@ CLAUDE.md + docs/ 6종 작성
 
 | 단계 | 검증 방법 | 완료 |
 |---|---|---|
-| 2.1 `backend/` 폴더, 가상환경, 의존성 8개 설치 | `pip list` 에 8개만 있고 그 밖의 직접 추가는 없다 | [ ] |
-| 2.2 앱 뼈대, `.env` 읽기(`python-dotenv`), 포트 8000 | `uvicorn` 이 8000 에서 뜨고 키가 코드에 하드코딩되지 않았다 | [ ] |
-| 2.3 Meeting 모델 8필드 + DB 연결 | 테이블 DDL 에 `AUTOINCREMENT` 가 있고, 지운 id 가 재사용되지 않는다 (pytest) | [ ] |
-| 2.4 스키마(`extra="forbid"`)와 예외 핸들러 | 필수값 누락 400, 스펙 외 필드 422 (pytest) | [ ] |
-| 2.5 `POST /api/notes`(201), `GET /api/notes/{id}`(200/404) | 저장 후 단건 조회가 되고 없는 id 는 404 (pytest) | [ ] |
-| 2.6 `GET /api/notes` 목록과 검색 | `q`(제목·참석자), `from`·`to` 양끝 포함, 목록에 `body` 없음 (pytest) | [ ] |
-| 2.7 `PUT /api/notes/{id}`(200), `DELETE`(204) | 수정값이 반영되고 삭제 후 404 (pytest) | [ ] |
-| 2.8 `GET /api/todos` | 필드 `what`/`who`/`when`/`note_id`/`note_title`, 회의 날짜 오래된 순 (pytest) | [ ] |
-| 2.9 `POST /api/upload` + 세 갈래 구분 연결 (`google-genai`) | mp3·wav 외 415, 25MB 초과 413, 외부 실패 502, 구분 실패 시 빈 값으로 201 저장 (pytest, 실제 Gemini 호출, 호출 사이 1초 간격 - `05-conventions.md`) | [ ] |
-| 2.10 전체 pytest + Swagger 확인 | 전체 통과, `http://localhost:8000/docs` 에 7개 경로가 보인다 | [ ] |
+| 2.1 `backend/` 폴더, 가상환경, 의존성 8개 설치 | `pip list` 에 8개만 있고 그 밖의 직접 추가는 없다 | [x] |
+| 2.2 앱 뼈대, `.env` 읽기(`python-dotenv`), 포트 8000 | `uvicorn` 이 8000 에서 뜨고 키가 코드에 하드코딩되지 않았다 | [x] |
+| 2.3 Meeting 모델 8필드 + DB 연결 | 테이블 DDL 에 `AUTOINCREMENT` 가 있고, 지운 id 가 재사용되지 않는다 (pytest) | [x] |
+| 2.4 스키마(`extra="forbid"`)와 예외 핸들러 | 필수값 누락 400, 스펙 외 필드 422 (pytest) | [x] |
+| 2.5 `POST /api/notes`(201), `GET /api/notes/{id}`(200/404) | 저장 후 단건 조회가 되고 없는 id 는 404 (pytest) | [x] |
+| 2.6 `GET /api/notes` 목록과 검색 | `q`(제목·참석자), `from`·`to` 양끝 포함, 목록에 `body` 없음 (pytest) | [x] |
+| 2.7 `PUT /api/notes/{id}`(200), `DELETE`(204) | 수정값이 반영되고 삭제 후 404 (pytest) | [x] |
+| 2.8 `GET /api/todos` | 필드 `what`/`who`/`when`/`note_id`/`note_title`, 회의 날짜 오래된 순 (pytest) | [x] |
+| 2.9 `POST /api/upload` + 세 갈래 구분 연결 (`google-genai`) | mp3·wav 외 415, 25MB 초과 413, 외부 실패 502, 구분 실패 시 빈 값으로 201 저장 (pytest, 실제 Gemini 호출, 호출 사이 1초 간격 - `05-conventions.md`) | [x] |
+| 2.10 전체 pytest + Swagger 확인 | 전체 통과, `http://localhost:8000/docs` 에 7개 경로가 보인다 | [x] |
 
 ## Phase 3 - 프론트
 
