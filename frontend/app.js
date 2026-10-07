@@ -223,7 +223,14 @@ const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
 function initNewForm() {
   el('metAt').value = toLocalInputValue(new Date());
 
+  // 이전 검증·저장 문구가 남아 있지 않도록 입력이 바뀌거나 받아쓰기를 시작하면 지운다
+  const clearSaveStatus = () => {
+    role('saveStatus').textContent = '';
+  };
+  ['title', 'metAt', 'attendees', 'body'].forEach((id) => el(id).addEventListener('input', clearSaveStatus));
+
   el('btnUp').addEventListener('click', async () => {
+    clearSaveStatus();
     const status = role('upStatus');
     const file = el('file').files[0];
     if (!file) {
